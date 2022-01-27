@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Mernis
+@{
+    ViewData["Title"] = "MernisAdd";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Starbucks Müşteri Ekleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("MernisAdd", "Mernis", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Müşteri Adı")
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Ad)
+    <br /> <br />
+    @Html.Label("Müşteri Soyadı")
+    @Html.TextAreaFor(x => x.Soyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Soyad)
+    <br /> <br />
+    @Html.Label("TC Kimlik Numarası")
+    @Html.TextAreaFor(x => x.TcKimlikNo, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.TcKimlikNo)
+    <br /> <br />
+    @Html.Label("Doğum Tarihi")
+    @Html.TextAreaFor(x => x.DogumTarihi, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.DogumTarihi)
+    <br /> <br />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <button class="btn btn-info" id="btn1">Kaydet</button>
+</div>
+}
+<script>
+    $('#btn1').click(function(){
+        swal("Tebrikler !", "Başarılı bir şekilde eklendi!", "success");
+    });
+</script>
+

@@ -1,0 +1,104 @@
+﻿@using EntityLayer.Concrete
+@model List<Mernis>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    <!-- partial:partials/_navbar.html -->
+    <!-- partial -->
+    <!-- partial:partials/_sidebar.html -->
+
+
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <i class="mdi mdi-home"></i>
+            </span> Toplam Müşteri Sayısı
+        </h3>
+    </div>
+    <div class="row">
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Starbucks Müşteri Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">12</h2>
+                    <h6 class="card-text">Starbucks Firması Müşteri Sayısı</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Portal Müşteri Sayısı<i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">8</h2>
+                    <h6 class="card-text">Portal Firması Müşteri Sayısı</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Toplam Müşteri Sayısı <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">20</h2>
+                    <h6 class="card-text">Tüm Firmalar Toplam Müşteri Sayısı</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Starbucks Firması Müşterileri</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Adı </th>
+                                    <th> Soyadı </th>
+                                    <th> TC Kimlik No</th>
+                                    <th> Doğum Tarihi </th>
+                                    <th> İşlemler </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+
+                                    <tr>
+                                        <td> @item.Ad </td>
+                                        <td> @item.Soyad </td>
+                                        <td> @item.TcKimlikNo</td>
+                                        <td> @(((DateTime)item.DogumTarihi).ToString("dd-MMM-yyyy"))</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/Mernis/MernisAdd" class="btn btn-info">Yeni Müşteri</a>
+</body>
+</html>
